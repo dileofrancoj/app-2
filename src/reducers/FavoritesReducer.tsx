@@ -16,7 +16,6 @@ export function favoritesReducer(
   switch (action.type) {
     case ActionType.AddFavorite: {
       return {
-        ...state,
         favorites: [...state.favorites, action.payload],
       };
     }
@@ -29,7 +28,6 @@ export function favoritesReducer(
         (favorite: Favorite) => favorite.id !== action.payload.id
       );
       return {
-        ...state,
         favorites: fv,
       };
     }

@@ -1,0 +1,7 @@
+1. Eliminar producto
+2. El agregar producto (corazón) -> logica para que el corazón se muestre de una
+   forma u otra si el producto esta o no agregado a favoritos
+
+3. Agregar testing del contexto de favoritos
+4. Paginador (https://api.mercadolibre.com/sites/MLA/search?q=iphone&limit=5&offset=5)
+5. https://excalidraw.com/ dibujar el diagrama de la aplicacion con todos los componentes

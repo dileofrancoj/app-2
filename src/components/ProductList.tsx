@@ -1,5 +1,6 @@
 import { Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useFavorites } from "../contexts/FavoritesContext";
 
 import { iProduct } from "../types/products";
 
@@ -8,6 +9,7 @@ export interface iProductProps {
 }
 
 const ProductList: React.FC<iProductProps> = ({ product }) => {
+  const { addFavorite } = useFavorites();
   return (
     <Col md={12} className="mt-4 mb-4">
       <Row>
@@ -37,6 +39,14 @@ const ProductList: React.FC<iProductProps> = ({ product }) => {
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRles4jof85OhBphP_2uanyatiFJjYgfVX7Jg&usqp=CAU"
               />
             )}
+          </Row>
+          <Row className="mt-4">
+            <p
+              onClick={() => addFavorite(product)}
+              style={{ cursor: "pointer" }}
+            >
+              Agregar producto
+            </p>
           </Row>
         </Col>
       </Row>

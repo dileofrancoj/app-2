@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
-import Search from "../components/Search";
 import { useFetch } from "../hooks/useFetch";
+import { Favorite } from "../types/favorites";
 import { iProduct } from "../types/products";
 // Servir los productos a cualquier componente hijo productsResults, loading
 // searchProducts -->
@@ -24,8 +24,8 @@ const { Provider } = ProductsContext;
 export const ProductsProvider: React.FC = ({ children }) => {
   const history = useHistory();
   const [product, setProduct] = useState<string>("");
-  console.log(product);
-  const [products, loading] = useFetch(`search?q=${product}&limit=5`);
+
+  const [products, loading] = useFetch(`search?q=${product}&limit=5&offset=1`);
 
   const searchProducts = (p: string) => {
     history.push("/products");
@@ -35,7 +35,6 @@ export const ProductsProvider: React.FC = ({ children }) => {
   const { results: productsResults }: { results: iProduct[] } = products;
   return (
     <Provider value={{ productsResults, loading, searchProducts }}>
-      <Search />
       {children}
     </Provider>
   );
